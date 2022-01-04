@@ -116,7 +116,7 @@
         }
       },
       {
-        "label": "Line",
+        "label": "Lines",
         "name": "line",
         "type": "color",
         "help_text": "This is the color for simple lines dividers.",
@@ -130,8 +130,8 @@
         }
       },
       {
-        "label": "Body",
-        "name": "body",
+        "label": "Website Page Body",
+        "name": "body_bg",
         "type": "color",
         "help_text": "This is the color for general body of the website.",
         "visibility": {
