@@ -1,0 +1,357 @@
+* {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: subpixel-antialiased;
+  /* text-rendering: optimizeLegibility !important;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004); */
+}
+
+*:focus {
+  outline: none;
+}
+
+/* --------------------------------------------------- */
+/* Overriding padding of HubSpot container-fluid class */
+/* --------------------------------------------------- */
+.container-fluid {
+  /* padding-right: 15px;
+  padding-left: 15px; */
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+a[data-fancybox^="gallery-video"]{
+  position: relative;
+}
+
+a[data-fancybox^="gallery-video"]::after{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    background: url({{get_asset_url('../images/icon-play-arrow.svg')}}) center left 60% no-repeat;
+    background-size: 30px 30px;
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+
+    /* override on theme-overrides.css */
+    width: 80px;
+    height: 80px;
+    background-color: rgba(54, 54, 54, 0.6);
+  }
+  
+  a[data-fancybox^="gallery-video"]:hover::after{
+    backdrop-filter: blur(0px);
+    /* override on theme-overrides.css */
+    background-color: rgba(54, 54, 54, 1);
+  }
+
+  .line-separator{
+    width: 100%;
+    height: 1px;
+    padding: 30px 0;
+  }
+
+/* --------------- */
+/* GENERAL CLASESS*/
+/* --------------- */
+
+/* -------- */
+/* Flexbox */
+/* ------- */
+.df{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.fww{
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.fwnw{
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.aic{
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ais{
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.aie{
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+
+.jcc{
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.jcfs{
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.jcfe{
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.jcsb{
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.jcsa{
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.jcse{
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.fdr{
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.fdrr{
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.fdc{
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.fdcr{
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+.fg1{
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+/* ----------------------------------------------------------- */
+/* This property is a shorthand for the following CSS properties:
+align-items
+justify-items  -  Not works in IE*/
+/* ----------------------------------------------------------- */
+.picc{
+  place-items: center center;
+}
+
+.pics{
+  place-items: center start;
+}
+
+.pice{
+  place-items: center end;
+}
+
+.pisc{
+  place-items: start center;
+}
+
+.piss{
+  place-items: start start;
+}
+
+.piee{
+  place-items: end end;
+}
+
+/* ------ */
+/* Grids */
+/* ------ */
+.dg{
+  display: -ms-grid;
+  display: grid;
+}
+
+.jic{
+  justify-items: center;
+}
+
+.jis{
+  justify-items: start;
+}
+
+.jie{
+  justify-items: end;
+}
+
+.jisth{
+  justify-items: stretch;
+}
+
+.aigc{
+  align-items: center;
+}
+
+.aigs{
+  align-items: start;
+}
+
+.aige{
+  align-items: end;
+}
+
+.aigsth{
+  align-items: stretch;
+}
+
+.acs{
+  align-content: start;
+}
+.ace{
+  align-content: end;
+}
+.acc{
+  align-content: center;
+}
+.acsth{
+  align-content: stretch;
+}
+.acsa{
+  align-content: space-around;
+}
+.acsb{
+  align-content: space-between;
+}
+.acse{
+  align-content: space-evenly;
+}
+
+.jcs{
+  justify-content: start;
+}
+.jce{
+  justify-content: end;
+}
+
+.jcsth{
+  justify-content: stretch;
+}
+.jcsa{
+  justify-content: space-around;
+}
+
+.jcse{
+  justify-content: space-evenly;
+}
+
+.tac{
+  text-align: center;
+}
+
+/* Overriding work break for headings and blog post title */
+h1, h2, h3, h4, h5, h6,
+.blog-post__title span,
+.hs_cos_wrapper_type_text{
+  word-break: normal !important;
+  word-wrap: inherit;
+  width: auto !important;
+}
+
+p{
+  width: auto !important;
+}
+
+.centered{
+    margin: 0 auto;
+}
+
+.t-center{
+    text-align: center;
+}
+
+.t-left{
+    text-align: left;
+}
+
+.t-right{
+  text-align: right;
+}
+
+.t-shadow{
+    text-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+}
+
+/* VISIBLE ON */
+.show-desktop {
+  display: block;
+}
+
+.hide-desktop {
+  display: none;
+}
+
+/* ----------- iPad Pro 10.5" is 834px ----------- */
+@media (max-width: 834px) {
+  .hide-desktop {
+    display: block !important;
+  }
+
+  .show-tablet {
+    display: block !important;
+  }
+
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+/* ----------- Small devices ----------- */
+@media (max-width: 575px) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: block !important;
+  }
+}
+
+
+/* Pair  */
+.pair-buttons{
+  gap: 1rem;
+}
