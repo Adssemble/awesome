@@ -6,7 +6,7 @@
 
   1. Color Field CSS Mapper
 
-##}
+##Tableofcontents}
 
 {% set macros = true %}
 
@@ -43,4 +43,16 @@ Example:
 
   rgba({{ colorhex }}, {{ coloropacity }})
 
+{% endmacro %}
+
+{###########################################################################}
+{########################   Transition Prefixer   #######################}
+{###########################################################################}
+
+{% macro trans(value) %} 
+  -webkit-transition: {{value}};
+  -moz-transition: {{value}};
+  -o-transition: {{value}};
+  -ms-transition: {{value}};
+  transition: {{value}};
 {% endmacro %}

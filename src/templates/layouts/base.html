@@ -14,6 +14,11 @@
       {{ require_css(get_asset_url(template_css)) }}
     {% endif %}
     {{ require_css(get_asset_url("../../css/theme-overrides.css")) }}
+    {# TODO include only in the modules or theme settings require it #}
+    {# AWESOME external css #}
+    {# require_css(get_asset_url('../../css/awesome-external/jquery.fancybox.min.css'), "async") #}
+    {# require_css(get_asset_url('../../css/awesome-external/jquery.modal.min.css'), "async") #}
+    {# require_css(get_asset_url('../../css/awesome-external/aos.css'), "async") #}
     {# To see a full list of what is included via standard_header_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
     {{ standard_header_includes }}
   </head>
@@ -34,7 +39,16 @@
         {% global_partial path='../partials/footer.html' %}
       {% endblock footer %}
     </div>
+    <div class="totop"></div>
     {{ require_js(get_asset_url('../../js/main.js')) }}
+    {# TODO include only in the modules or theme settings require it #}
+    {# AWESOME external js #}
+    {# require_js("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js", { defer:true }) #}
+    {# require_js(get_asset_url("../../js/awesome-external/jquery.fancybox.min.js"), { defer:true }) #}
+    {# require_js(get_asset_url("../../js/awesome-external/jquery.modal.min.js"), { defer:true }) #}
+    {# require_js(get_asset_url("../../js/awesome-external/aos.min.js"), { defer:true }) #}
+    {# require_js(get_asset_url("../../js/awesome-external/simple-parallax.min.js"), { defer:true }) #}
+    {{ require_js(get_asset_url("../../js/awesome.js"), { defer:true }) }}
     {# To see a full list of what is included via standard_footer_includes please reference this article: https://developers.hubspot.com/docs/cms/hubl/variables#required-page-template-variables #}
     {{ standard_footer_includes }}
   </body>

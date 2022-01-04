@@ -19,7 +19,7 @@
           }
         },
         "default": {
-          "color": "#494A52"
+          "color": "#801EBE"
         }
       },
       {
@@ -37,7 +37,110 @@
           }
         },
         "default": {
-          "color": "#F8FAFC"
+          "color": "#09B6E7"
+        }
+      },
+      {
+        "label": "Accent",
+        "name": "accent",
+        "type": "color",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "inherited_value": {
+          "property_value_paths": {
+            "color": "brandSettings.colors[2]"
+          }
+        },
+        "default": {
+          "color": "#DC4374"
+        }
+      },
+      {
+        "label": "Dark",
+        "name": "dark",
+        "type": "color",
+        "locked": false,
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#0D061E"
+        }
+      },
+      {
+        "label": "Gray",
+        "name": "gray",
+        "type": "color",
+        "locked": false,
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#6C6C6C"
+        }
+      },
+      {
+        "label": "Light Gray",
+        "name": "light_gray",
+        "type": "color",
+        "locked": false,
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#BAB9BF",
+          "opacity": 100
+        }
+      },
+      {
+        "label": "Extra Light Gray",
+        "name": "extra_light_gray",
+        "type": "color",
+        "locked": true,
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#F4F4F4"
+        }
+      },
+      {
+        "label": "Line",
+        "name": "line",
+        "type": "color",
+        "help_text": "This is the color for simple lines dividers.",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#DEDEDE"
+        }
+      },
+      {
+        "label": "Body",
+        "name": "body",
+        "type": "color",
+        "help_text": "This is the color for general body of the website.",
+        "visibility": {
+          "hidden_subfields": {
+            "opacity": true
+          }
+        },
+        "default": {
+          "color": "#FDFCFE"
         }
       }
     ]

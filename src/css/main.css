@@ -45,7 +45,4 @@ Helper classes with ability to override anything that comes before it
 CSS and classes used by the theme
 */
 {% include './awesome-external/bootstrap_grid.css' %}
-{% include './awesome-external/fontawesome.css' %}
-{% include './awesome-external/fancybox_min.css' %}
-{% include './awesome-external/aos.css' %}
 {% include './awesome.css' %}
