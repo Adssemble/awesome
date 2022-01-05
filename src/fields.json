@@ -8,14 +8,10 @@
         "label": "Primary",
         "name": "primary",
         "type": "color",
+        "help_text": "Brand primary color",
         "visibility": {
           "hidden_subfields": {
             "opacity": true
-          }
-        },
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "brandSettings.primaryColor"
           }
         },
         "default": {
@@ -26,14 +22,10 @@
         "label": "Secondary",
         "name": "secondary",
         "type": "color",
+        "help_text": "Brand secondary color",
         "visibility": {
           "hidden_subfields": {
             "opacity": true
-          }
-        },
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "brandSettings.colors[1]"
           }
         },
         "default": {
@@ -44,14 +36,10 @@
         "label": "Accent",
         "name": "accent",
         "type": "color",
+        "help_text": "Brand tertiary color or a highlight color.",
         "visibility": {
           "hidden_subfields": {
             "opacity": true
-          }
-        },
-        "inherited_value": {
-          "property_value_paths": {
-            "color": "brandSettings.colors[2]"
           }
         },
         "default": {
@@ -76,21 +64,21 @@
         "label": "Gray",
         "name": "gray",
         "type": "color",
-        "locked": false,
+        "locked": true,
         "visibility": {
           "hidden_subfields": {
             "opacity": true
           }
         },
         "default": {
-          "color": "#6C6C6C"
+          "color": "#7d7c83"
         }
       },
       {
         "label": "Light Gray",
         "name": "light_gray",
         "type": "color",
-        "locked": false,
+        "locked": true,
         "visibility": {
           "hidden_subfields": {
             "opacity": true
@@ -119,7 +107,7 @@
         "label": "Lines",
         "name": "line",
         "type": "color",
-        "help_text": "This is the color for simple lines dividers.",
+        "help_text": "This will set the color for dividers lines, table lines.",
         "visibility": {
           "hidden_subfields": {
             "opacity": true
@@ -130,10 +118,10 @@
         }
       },
       {
-        "label": "Website Page Body",
-        "name": "body_bg",
+        "label": "Page Body",
+        "name": "body_color",
         "type": "color",
-        "help_text": "This is the color for general body of the website.",
+        "help_text": "This will set the color for general body of the website.",
         "visibility": {
           "hidden_subfields": {
             "opacity": true
@@ -151,7 +139,7 @@
     "type": "group",
     "children": [
       {
-        "label": "Primary",
+        "label": "Primary (Heading)",
         "name": "primary",
         "type": "font",
         "visibility": {
@@ -162,17 +150,18 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary.color"
+            "color": "theme.global_colors.dark.color"
           }
         },
         "default": {
           "fallback": "sans-serif",
-          "font": "Lato",
-          "font_set": "GOOGLE"
+          "font": "Montserrat",
+          "font_set": "GOOGLE",
+          "variant": "700"
         }
       },
       {
-        "label": "Secondary",
+        "label": "Secondary (Body)",
         "name": "secondary",
         "type": "font",
         "visibility": {
@@ -183,41 +172,17 @@
         },
         "inherited_value": {
           "property_value_paths": {
-            "color": "theme.global_colors.primary.color"
+            "color": "theme.global_colors.gray.color"
           }
         },
         "default": {
           "fallback": "serif",
-          "font": "Merriweather",
-          "font_set": "GOOGLE"
+          "font": "Raleway",
+          "font_set": "GOOGLE",
+          "styles": {
+            "font-weight": "normal"
+          }
         }
-      }
-    ]
-  },
-  {
-    "label": "Spacing",
-    "name": "spacing",
-    "type": "group",
-    "children": [
-      {
-        "label": "Vertical spacing",
-        "name": "vertical_spacing",
-        "type": "number",
-        "display": "slider",
-        "max": 500,
-        "min": 0,
-        "suffix": "px",
-        "default": 80
-      },
-      {
-        "label": "Maximum content width",
-        "name": "maximum_content_width",
-        "type": "number",
-        "display": "slider",
-        "max": 2500,
-        "min": 900,
-        "suffix": "px",
-        "default": 1240
       }
     ]
   },
@@ -237,14 +202,14 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.secondary.color",
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "color": "theme.global_fonts.primary.color",
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
-              "size": 50,
+              "size": 80,
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
@@ -257,13 +222,92 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
+          },
+          {
+            "label": "Line Height",
+            "name": "line_height",
+            "type": "number",
+            "suffix": "em",
+            "min": 1,
+            "max": 6,
+            "step": 0.1,
+            "default": 1.1
+          },
+          {
+            "label": "Letter Spacing",
+            "name": "letter_spacing",
+            "type": "number",
+            "suffix": "px",
+            "min": -5,
+            "max": 6,
+            "step": 1,
+            "default": 0
+          },
+          {
+            "label": "Tablet Settings",
+            "name": "tablet",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 30,
+                "max": 90,
+                "step": 1,
+                "default": 60
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "required": false,
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
+          },
+          {
+            "label": "Mobile Settings",
+            "name": "mobile",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 30,
+                "max": 80,
+                "step": 1,
+                "default": 50
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "suffix": "em",
+                "type": "number",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
           }
         ]
       },
@@ -278,14 +322,14 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.secondary.color",
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "color": "theme.global_fonts.primary.color",
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
-              "size": 38,
+              "size": 52,
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
@@ -298,13 +342,90 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
+          },
+          {
+            "label": "Line Height",
+            "name": "line_height",
+            "type": "number",
+            "suffix": "em",
+            "min": 1,
+            "max": 6,
+            "step": 0.1,
+            "default": 1.2
+          },
+          {
+            "label": "Letter Spacing",
+            "name": "letter_spacing",
+            "type": "number",
+            "suffix": "px",
+            "min": -5,
+            "max": 6,
+            "step": 1,
+            "default": 0
+          },
+          {
+            "label": "Tablet Settings",
+            "name": "tablet",
+            "type": "group",
+            "expanded": true,
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 20,
+                "max": 60,
+                "step": 1,
+                "default": 40
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
+          },
+          {
+            "label": "Mobile Settings",
+            "name": "mobile",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 20,
+                "max": 60,
+                "step": 1,
+                "default": 36
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
           }
         ]
       },
@@ -319,14 +440,14 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.secondary.color",
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "color": "theme.global_fonts.primary.color",
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
-              "size": 30,
+              "size": 32,
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
@@ -339,13 +460,91 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
+          },
+          {
+            "label": "Line Height",
+            "name": "line_height",
+            "type": "number",
+            "suffix": "em",
+            "min": 1,
+            "max": 6,
+            "step": 0.1,
+            "default": 1.2
+          },
+          {
+            "label": "Letter Spacing",
+            "name": "letter_spacing",
+            "type": "number",
+            "suffix": "px",
+            "min": 0,
+            "max": 6,
+            "step": 1,
+            "default": 0
+          },
+          {
+            "label": "Tablet Settings",
+            "name": "tablet",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 18,
+                "max": 36,
+                "step": 1,
+                "default": 24
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
+          },
+          {
+            "label": "Mobile Settings",
+            "name": "mobile",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 18,
+                "max": 38,
+                "step": 1,
+                "default": 22
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
           }
         ]
       },
@@ -360,14 +559,14 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.secondary.color",
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "color": "theme.global_fonts.primary.color",
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
-              "size": 24,
+              "size": 26,
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
@@ -379,13 +578,91 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
+          },
+          {
+            "label": "Line Height",
+            "name": "line_height",
+            "type": "number",
+            "suffix": "em",
+            "min": 1,
+            "max": 6,
+            "step": 0.1,
+            "default": 1.2
+          },
+          {
+            "label": "Letter Spacing",
+            "name": "letter_spacing",
+            "type": "number",
+            "suffix": "px",
+            "min": 0,
+            "max": 6,
+            "step": 1,
+            "default": 0
+          },
+          {
+            "label": "Tablet Settings",
+            "name": "tablet",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 16,
+                "max": 30,
+                "step": 1,
+                "default": 22
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
+          },
+          {
+            "label": "Mobile Settings",
+            "name": "mobile",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 16,
+                "max": 30,
+                "step": 1,
+                "default": 20
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
           }
         ]
       },
@@ -400,14 +677,15 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "color": "theme.global_fonts.primary.color",
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
               "color": "#000000",
-              "size": 16,
+              "size": 18,
               "size_unit": "px",
               "styles": {
                 "text-decoration": "none"
@@ -419,13 +697,91 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
+          },
+          {
+            "label": "Line Height",
+            "name": "line_height",
+            "type": "number",
+            "suffix": "em",
+            "min": 1,
+            "max": 6,
+            "step": 0.1,
+            "default": 1.2
+          },
+          {
+            "label": "Letter Spacing",
+            "name": "letter_spacing",
+            "type": "number",
+            "suffix": "px",
+            "min": 0,
+            "max": 6,
+            "step": 1,
+            "default": 0
+          },
+          {
+            "label": "Tablet Settings",
+            "name": "tablet",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 14,
+                "max": 24,
+                "step": 1,
+                "default": 20
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
+          },
+          {
+            "label": "Mobile Settings",
+            "name": "mobile",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 14,
+                "max": 24,
+                "step": 1,
+                "default": 18
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
           }
         ]
       },
@@ -440,10 +796,10 @@
             "type": "font",
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.secondary.color",
-                "fallback": "theme.global_fonts.secondary.fallback",
-                "font": "theme.global_fonts.secondary.font",
-                "font_set": "theme.global_fonts.secondary.font_set"
+                "color": "theme.global_fonts.primary.color",
+                "fallback": "theme.global_fonts.primary.fallback",
+                "font": "theme.global_fonts.primary.font",
+                "font_set": "theme.global_fonts.primary.font_set"
               }
             },
             "default": {
@@ -459,13 +815,91 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
+          },
+          {
+            "label": "Line Height",
+            "name": "line_height",
+            "type": "number",
+            "suffix": "em",
+            "min": 1,
+            "max": 6,
+            "step": 0.1,
+            "default": 1.2
+          },
+          {
+            "label": "Letter Spacing",
+            "name": "letter_spacing",
+            "type": "number",
+            "suffix": "px",
+            "min": 0,
+            "max": 6,
+            "step": 0.5,
+            "default": 2.5
+          },
+          {
+            "label": "Tablet Settings",
+            "name": "tablet",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 10,
+                "max": 13,
+                "step": 1,
+                "default": 12
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
+          },
+          {
+            "label": "Mobile Settings",
+            "name": "mobile",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 10,
+                "max": 13,
+                "step": 1,
+                "default": 12
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.1
+              }
+            ]
           }
         ]
       },
@@ -485,16 +919,107 @@
             },
             "inherited_value": {
               "property_value_paths": {
-                "color": "theme.global_fonts.primary.color",
-                "fallback": "theme.global_fonts.primary.fallback",
-                "font": "theme.global_fonts.primary.font",
-                "font_set": "theme.global_fonts.primary.font_set"
+                "color": "theme.global_fonts.secondary.color",
+                "fallback": "theme.global_fonts.secondary.fallback",
+                "font": "theme.global_fonts.secondary.font",
+                "font_set": "theme.global_fonts.secondary.font_set"
               }
             },
             "default": {
-              "size": 24,
+              "size": 18,
               "size_unit": "px"
             }
+          },
+           {
+            "label": "Transform",
+            "name": "transform",
+            "type": "choice",
+            "choices": [
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
+            ],
+            "display": "select",
+            "default": "none"
+          },
+          {
+            "label": "Line Height",
+            "name": "line_height",
+            "type": "number",
+            "sufix": "em",
+            "min": 1,
+            "max": 6,
+            "step": 0.1,
+            "default": 1.8
+          },
+          {
+            "label": "Letter Spacing",
+            "name": "letter_spacing",
+            "type": "number",
+            "suffix": "px",
+            "min": 0,
+            "max": 6,
+            "step": 1,
+            "default": 0
+          },
+          {
+            "label": "Tablet Settings",
+            "name": "tablet",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 15,
+                "max": 18,
+                "step": 1,
+                "default": 17
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.8
+              }
+            ]
+          },
+          {
+            "label": "Mobile Settings",
+            "name": "mobile",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 13,
+                "max": 16,
+                "step": 1,
+                "default": 15
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.7
+              }
+            ]
           }
         ]
       },
@@ -509,24 +1034,641 @@
             "type": "font",
             "visibility": {
               "hidden_subfields": {
-                "size": true
+                "size": true,
+                "styles": true
               }
             },
             "inherited_value": {
               "property_value_paths": {
-                "fallback": "theme.global_fonts.primary.fallback",
-                "font": "theme.global_fonts.primary.font",
-                "font_set": "theme.global_fonts.primary.font_set"
+                "fallback": "theme.global_fonts.secondary.fallback",
+                "font": "theme.global_fonts.secondary.font",
+                "font_set": "theme.global_fonts.secondary.font_set",
+                "color": "theme.global_colors.primary.color"
+              }
+            }
+          },
+          {
+            "label": "Normal State",
+            "name": "normal_state",
+            "type": "group",
+            "expanded": true,
+            "help_text": "When the cursor is outside the anchor link.",
+            "children": [
+              {
+                "label": "Link Color",
+                "name": "link_color",
+                "type": "color",
+                "visibility": {
+                  "hidden_subfields": {
+                    "opacity": true
+                  }
+                },
+                "inherited_value": {
+                  "property_value_paths": {
+                    "color": "theme.global_colors.primary.color"
+                  }
+                }
+              },
+              {
+                "label": "Show Underline",
+                "name": "show_underline",
+                "type": "boolean",
+                "display": "checkbox",
+                "sorteable": false,
+                "required": false,
+                "locked": false,
+                "default": false
+              }
+            ]
+          },
+          {
+            "label": "Hover State",
+            "name": "hover_state",
+            "type": "group",
+            "expanded": true,
+            "help_text": "When the cursor is over the anchor link.",
+            "children": [
+              {
+                "label": "Link Hover Color",
+                "name": "link_color",
+                "type": "color",
+                "visibility": {
+                  "hidden_subfields": {
+                    "opacity": true
+                  }
+                },
+                "inherited_value": {
+                  "property_value_paths": {
+                    "color": "theme.global_colors.primary.color"
+                  }
+                }
+              },
+              {
+                "label": "Show Underline",
+                "name": "show_underline",
+                "type": "boolean",
+                "display": "checkbox",
+                "sorteable": false,
+                "required": false,
+                "locked": false,
+                "default": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Blockquote",
+        "name": "blockquote",
+        "type": "group",
+        "help_text": "This will set the blockquote for the body text.",
+        "children": [
+          {
+            "label": "Font Style",
+            "name": "font_style",
+            "type": "font",
+            "visibility": {
+              "hidden_subfields": {
+                "styles": false,
+                "underline": true
+              }
+            },
+            "load_external_fonts": true,
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.text.body_font.font.color",
+                "font": "theme.global_fonts.secondary.font",
+                "font_set": "theme.global_fonts.secondary.font_set"
               }
             },
             "default": {
-              "color": "#0270E0",
-              "styles": {
-                "text-decoration": "none"
+              "size": 22,
+              "size_unit": "px",
+              "styles": {},
+              "variant": "500italic"
+            }
+
+          },
+          {
+            "label": "Transform",
+            "name": "transform",
+            "type": "choice",
+            "choices": [
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
+            ],
+            "display": "select",
+            "default": "none"
+          },
+          {
+            "label": "Line Height",
+            "name": "line_height",
+            "type": "number",
+            "suffix": "em",
+            "min": 1,
+            "max": 6,
+            "step": 0.1,
+            "default": 1.5
+          },
+          {
+            "label": "Letter Spacing",
+            "name": "letter_spacing",
+            "type": "number",
+            "suffix": "px",
+            "min": 0,
+            "max": 6,
+            "step": 1,
+            "default": 0
+          },
+          {
+            "name": "text_align",
+            "label": "Text Alignment",
+            "display": "select",
+            "choices": [
+                ["left", "Left"],
+                ["center", "Center"],
+                ["right", "Right"]
+              ],
+            "type": "choice",
+            "placeholder": "",
+            "default": "left" 
+          },
+          {
+            "name": "font_weight",
+            "label": "Font Weight",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "inline_help_text": "",
+            "help_text": "",
+            "choices": [
+                ["regular", "Regular"],
+                ["bold", "Bold"]
+              ],
+            "type": "choice",
+            "placeholder": "",
+            "default": "regular" 
+          },
+          {
+            "label": "Tablet Settings",
+            "name": "tablet",
+            "type": "group",
+            "expanded": true,
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 16,
+                "max": 20,
+                "step": 1,
+                "default": 20
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.5
+              }
+            ]
+          },
+          {
+            "label": "Mobile Settings",
+            "name": "mobile",
+            "type": "group",
+            "expanded": true,
+            "children": [
+                {
+                  "label": "Font Size",
+                  "name": "font_size",
+                  "type": "number",
+                  "help_text": "",
+                  "suffix": "px",
+                  "required": false,
+                  "min": 14,
+                  "max": 16,
+                  "step": 1,
+                  "default": 16
+                },
+                {
+                  "label": "Line Height",
+                  "name": "line_height",
+                  "type": "number",
+                  "suffix": "em",
+                  "min": 1,
+                  "max": 6,
+                  "step": 0.1,
+                  "default": 1.3
+                }
+              ]
+            },
+            {
+              "label": "Show Left Border",
+              "id": "blockquote.show_border",
+              "name": "show_left_border",
+              "type": "boolean",
+              "display": "checkbox",
+              "sortable" : false,
+              "default" : true
+            },
+            {
+              "label": "Border",
+              "name": "border",
+              "type": "border",
+              "allow_custom_border_sides" : false,
+              "visibility": {
+                "controlling_field": "blockquote.show_border",
+                "controlling_value_regex": true,
+                "operator": "EQUAL",
+                "access" : null,
+                "hidden_subfields" : null
+              },
+              "inherited_value": {
+                "property_value_paths": {
+                  "top.color": "theme.global_colors.secondary.color",
+                  "right.color": "theme.global_colors.secondary.color",
+                  "bottom.color": "theme.global_colors.secondary.color",
+                  "left.color": "theme.global_colors.secondary.color"
+                }
+              },
+              "default": {
+                "top": {
+                  "width": {
+                    "value": 1,
+                    "units": "px"
+                  },
+                  "opacity": 100,
+                  "style": "solid",
+                  "color": "#09B6E7"
+                },
+                "right": {
+                  "width": {
+                    "value": 1,
+                    "units": "px"
+                  },
+                  "opacity": 100,
+                  "style": "solid",
+                  "color": "#09B6E7"
+                },
+                "bottom": {
+                  "width": {
+                    "value": 1,
+                    "units": "px"
+                  },
+                  "opacity": 100,
+                  "style": "solid",
+                  "color": "#09B6E7"
+                },
+                "left": {
+                  "width": {
+                    "value": 1,
+                    "units": "px"
+                  },
+                  "opacity": 100,
+                  "style": "solid",
+                  "color": "#09B6E7"
+                }
+              }
+            },
+            {
+              "label": "Padding Left",
+              "name": "padding_left",
+              "type": "number",
+              "help_text": "Indent value or padding left of your text.",
+              "display": "slider",
+              "suffix": "px",
+              "required": false,
+              "min": 1,
+              "max": 60,
+              "step": 1,
+              "default": 30,
+              "visibility": {
+                "controlling_field": "blockquote.show_border",
+                "controlling_value_regex": true,
+                "operator": "EQUAL",
+                "access" : null,
+                "hidden_subfields" : null
+              }
+            },
+            {
+              "id": "blockquote.show_bg",
+              "name": "show_bg",
+              "label": "Show Background Box",
+              "type": "boolean",
+              "display": "checkbox",
+              "default": false,
+              "visibility": {
+                "controlling_field": "blockquote.show_border",
+                "controlling_value_regex": false,
+                "operator": "EQUAL",
+                "access": null,
+                "hidden_subfields": null
+              }
+            },
+            {
+              "name": "bg_color",
+              "label": "Background Box Color",
+              "type": "color",
+              "inherited_value": {
+                "property_value_paths": {
+                  "color": "theme.global_colors.extra_light_gray.color"
+                }
+              },
+              "visibility": {
+                "controlling_field": "blockquote.show_bg",
+                "controlling_value_regex": true,
+                "operator": "EQUAL",
+                "access": null,
+                "hidden_subfields": null
+              },
+              "default": {
+                "color": "#ffffff",
+                "opacity": 100
+              }
+            },
+            {
+              "type": "number",
+              "name": "padding",
+              "label": "Padding",
+              "help_text": "Indent value or padding of your text.",
+              "suffix": "px",
+              "display": "slider",
+              "min": 10,
+              "max": 60,
+              "step": 1,
+              "default": 30,
+              "visibility": {
+                "controlling_field": "blockquote.show_bg",
+                "controlling_value_regex": true,
+                "operator": "EQUAL",
+                "access": null,
+                "hidden_subfields": null
               }
             }
+          ]
+      },
+      {
+        "label": "Lists (ul)",
+        "name": "lists",
+        "type": "group",
+        "children": [
+          {
+            "label": "Font Style",
+            "name": "font_style",
+            "type": "font",
+            "visibility": {
+              "hidden_subfields": {
+                "styles": false,
+                "underline": true
+              }
+            },
+            "load_external_fonts": true,
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.text.body_font.font.color",
+                "font": "theme.global_fonts.secondary.font",
+                "font_set": "theme.global_fonts.secondary.font_set"
+              }
+            },
+            "default": {
+              "size": 18,
+              "size_unit": "px",
+              "styles": {
+                "text-decoration": "none"
+              },
+              "variant": "500"
+            }
+          },
+          {
+            "label": "Transform",
+            "name": "transform",
+            "type": "choice",
+            "choices": [
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
+            ],
+            "display": "select",
+            "default": "none"
+          }, 
+          {
+            "label": "Line Height",
+            "name": "line_height",
+            "type": "number",
+            "suffix": "em",
+            "min": 1,
+            "max": 6,
+            "step": 0.1,
+            "default": 2.2
+          },
+          {
+            "label": "Letter Spacing",
+            "name": "letter_spacing",
+            "type": "number",
+            "suffix": "px",
+            "min": 0,
+            "max": 6,
+            "step": 0.5,
+            "default": 0
+          },
+          {
+            "name": "bullet_type",
+            "label": "Bullets Type",
+            "display": "radio",
+            "choices": [
+              [ "circle", "Circle"],
+              [ "square", "Square"],
+              [ "line", "Line"],
+              [ "check", "Check Sign"]
+            ],
+            "type": "choice",
+            "placeholder": "",
+            "default": "check" 
+          },
+          {
+            "name": "bullet_color",
+            "label": "Bullets Color",
+            "type": "color",
+            "default": {
+              "opacity": 100 
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.secondary.color"
+              }
+            },
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            }
+          },
+          {
+            "name": "marker_color",
+            "label": "Marker Color",
+            "help_text": "Color for numbers and letters in ordered lists.",
+            "type": "color",
+            "default": {
+              "opacity": 100,
+              "color": "#FFFFFF"
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.extra_light_gray.color"
+              }
+            },
+            "visibility": {
+              "hidden_subfields": {
+                "opacity": true
+              }
+            }
+          },
+          {
+            "id": "show_marker_bg",
+            "name": "show_marker_bg",
+            "label": "Show Marker Background",
+            "type": "boolean",
+            "default": true 
+          },
+          {
+            "name": "marker_bg_color",
+            "label": "Marker Background Color",
+            "required": false,
+            "type": "color",
+            "default": {
+              "opacity": 100 
+            },
+            "inherited_value": {
+              "property_value_paths": {
+                "color": "theme.global_colors.secondary.color"
+              }
+            },
+            "visibility": {
+              "controlling_field": "show_marker_bg",
+              "controlling_value_regex": true,
+              "operator": "EQUAL"
+            }
+          },
+          {
+            "label": "Tablet Settings",
+            "name": "tablet",
+            "type": "group",
+            "expanded": true,
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "min": 10,
+                "max": 15,
+                "step": 1,
+                "default": 15
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.7
+              }
+            ]
+          },
+          {
+            "label": "Mobile Settings",
+            "name": "mobile",
+            "type": "group",
+            "expanded": true,
+            "help_text": "",
+            "children": [
+              {
+                "label": "Font Size",
+                "name": "font_size",
+                "type": "number",
+                "suffix": "px",
+                "required": false,
+                "min": 10,
+                "max": 15,
+                "step": 1,
+                "default": 15
+              },
+              {
+                "label": "Line Height",
+                "name": "line_height",
+                "type": "number",
+                "suffix": "em",
+                "required": false,
+                "min": 1,
+                "max": 6,
+                "step": 0.1,
+                "default": 1.5
+              }
+            ]
           }
+
         ]
+      }
+    ]
+  },
+  {
+    "label": "Spacing",
+    "name": "spacing",
+    "type": "group",
+    "children": [
+      {
+        "label": "Vertical Spacing",
+        "name": "vertical_spacing",
+        "help_text": "This lets you confirgure the padding top and bottom for sections.",
+        "type": "number",
+        "display": "slider",
+        "suffix": "px",
+        "min": 0,
+        "max": 300,
+        "default": 100
+      },
+      {
+        "label": "Default Content Width",
+        "name": "max_width",
+        "type": "number",
+        "help_text": "You will have the option <strong>default</strong> available when selecting the width of a module.",
+        "display": "slider",
+        "suffix": "px",
+        "max": 2500,
+        "min": 900,
+        "default": 1140
+      },
+      {
+        "label": "Medium Content Width",
+        "name": "medium_width",
+        "type": "number",
+        "help_text": "You will have the option <strong>medium</strong> available when selecting the width of a module.",
+        "display": "slider",
+        "suffix": "px",
+        "max": 900,
+        "min": 600,
+        "default": 750
+      },
+      {
+        "label": "Small Content Width",
+        "name": "small_width",
+        "type": "number",
+        "help_text": "You will have the option <strong>small</strong> available when selecting the width of a module.",
+        "display": "slider",
+        "suffix": "px",
+        "max": 600,
+        "min": 400,
+        "default": 560
       }
     ]
   },
@@ -562,10 +1704,10 @@
             "name": "transform",
             "type": "choice",
             "choices": [
-              [ "none", "None" ],
-              [ "capitalize", "Capitalize" ],
-              [ "uppercase", "Uppercase" ],
-              [ "lowercase", "Lowercase" ]
+              ["none", "None"],
+              ["capitalize", "Capitalize"],
+              ["uppercase", "Uppercase"],
+              ["lowercase", "Lowercase"]
             ],
             "display": "select",
             "default": "none"
@@ -598,9 +1740,9 @@
         "type": "group",
         "children": [
           {
-            "label" : "Border",
-            "name" : "border",
-            "type" : "border",
+            "label": "Border",
+            "name": "border",
+            "type": "border",
             "inherited_value": {
               "property_value_paths": {
                 "top.color": "theme.buttons.background.color.color",
@@ -609,7 +1751,7 @@
                 "left.color": "theme.buttons.background.color.color"
               }
             },
-            "default" : {
+            "default": {
               "top": {
                 "width": {
                   "value": 1,
@@ -867,10 +2009,10 @@
             "type": "group",
             "children": [
               {
-                "label" : "Border",
-                "name" : "border",
-                "type" : "border",
-                "default" : {
+                "label": "Border",
+                "name": "border",
+                "type": "border",
+                "default": {
                   "top": {
                     "width": {
                       "value": 2,
@@ -1122,9 +2264,9 @@
             "type": "group",
             "children": [
               {
-                "label" : "Border",
-                "name" : "border",
-                "type" : "border",
+                "label": "Border",
+                "name": "border",
+                "type": "border",
                 "inherited_value": {
                   "property_value_paths": {
                     "top.color": "theme.global_fonts.primary.color",
@@ -1133,7 +2275,7 @@
                     "left.color": "theme.global_fonts.primary.color"
                   }
                 },
-                "default" : {
+                "default": {
                   "top": {
                     "width": {
                       "value": 1,
@@ -1259,9 +2401,9 @@
                 "type": "group",
                 "children": [
                   {
-                    "label" : "Border",
-                    "name" : "border",
-                    "type" : "border",
+                    "label": "Border",
+                    "name": "border",
+                    "type": "border",
                     "inherited_value": {
                       "property_value_paths": {
                         "top.color": "theme.global_colors.primary.color",
@@ -1270,7 +2412,7 @@
                         "left.color": "theme.global_colors.primary.color"
                       }
                     },
-                    "default" : {
+                    "default": {
                       "top": {
                         "width": {
                           "value": 2,
